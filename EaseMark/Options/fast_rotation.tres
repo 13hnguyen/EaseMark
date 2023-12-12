@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EaseMarkOption" load_steps=4 format=3 uid="uid://b0tb3u66h6swd"]
+
+[ext_resource type="Script" path="res://EaseMark/scripts/ease_mark_fast_rotate.gd" id="1_8buys"]
+[ext_resource type="Resource" uid="uid://b508sxsp2itsv" path="res://EaseMark/defaults/mirror/mirror_default.tres" id="2_7hug4"]
+[ext_resource type="Script" path="res://EaseMark/scripts/EaseMarkOption.gd" id="3_03d7m"]
+
+[resource]
+script = ExtResource("3_03d7m")
+control = ExtResource("1_8buys")
+name = "Fast Rotation"
+curve_min = -100.0
+curve_max = 100.0
+default = ExtResource("2_7hug4")

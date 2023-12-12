@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EaseMarkOption" load_steps=4 format=3 uid="uid://x6mgkfrc0e0"]
+
+[ext_resource type="Script" path="res://EaseMark/scripts/ease_mark_squash.gd" id="1_csw7h"]
+[ext_resource type="Resource" uid="uid://b508sxsp2itsv" path="res://EaseMark/defaults/mirror/mirror_default.tres" id="2_vuomf"]
+[ext_resource type="Script" path="res://EaseMark/scripts/EaseMarkOption.gd" id="3_lr4ly"]
+
+[resource]
+script = ExtResource("3_lr4ly")
+control = ExtResource("1_csw7h")
+name = "Squash"
+curve_min = -100.0
+curve_max = 100.0
+default = ExtResource("2_vuomf")

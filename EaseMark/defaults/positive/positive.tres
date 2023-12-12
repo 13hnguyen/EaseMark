@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DefaultCurve" load_steps=10 format=3 uid="uid://b145kn147j8ii"]
+
+[ext_resource type="Curve2D" uid="uid://bow7dree7f3s4" path="res://EaseMark/defaults/positive/ease_in.tres" id="1_e3f1b"]
+[ext_resource type="Script" path="res://EaseMark/defaults/DefaultCurve.gd" id="1_f2lf1"]
+[ext_resource type="Curve2D" uid="uid://byvre2t18yne0" path="res://EaseMark/defaults/positive/ease_in_out.tres" id="2_iyv8x"]
+[ext_resource type="Curve2D" uid="uid://sprelj7uol3k" path="res://EaseMark/defaults/positive/ease_out.tres" id="3_h0nld"]
+[ext_resource type="Curve2D" uid="uid://dvt2rqje1m7yo" path="res://EaseMark/defaults/positive/ease_out_in.tres" id="4_a37ko"]
+[ext_resource type="Curve2D" uid="uid://dkp5na1sj2peu" path="res://EaseMark/defaults/positive/flat.tres" id="5_l1i8m"]
+[ext_resource type="Curve2D" uid="uid://by08qesm43cy2" path="res://EaseMark/defaults/positive/flat_middle.tres" id="6_mab16"]
+[ext_resource type="Curve2D" uid="uid://k103l5m6fflq" path="res://EaseMark/defaults/positive/hill.tres" id="7_607qq"]
+[ext_resource type="Curve2D" uid="uid://camffv1sxtvo8" path="res://EaseMark/defaults/positive/linear.tres" id="8_a0l2l"]
+
+[resource]
+script = ExtResource("1_f2lf1")
+array_curve = Array[Curve2D]([ExtResource("1_e3f1b"), ExtResource("2_iyv8x"), ExtResource("3_h0nld"), ExtResource("4_a37ko"), ExtResource("5_l1i8m"), ExtResource("6_mab16"), ExtResource("7_607qq"), ExtResource("8_a0l2l")])

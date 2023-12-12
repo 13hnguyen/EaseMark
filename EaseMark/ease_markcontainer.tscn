@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://vd7xf7xfopye"]
+
+[ext_resource type="Script" path="res://EaseMark/scripts/ease_mark_container.gd" id="1_14upp"]
+[ext_resource type="PackedScene" uid="uid://dut44eex521rp" path="res://GUI/EaseMarkEdit.tscn" id="1_fa5hv"]
+[ext_resource type="Script" path="res://EaseMark/scripts/EaseMarkFrame.gd" id="2_f0yqg"]
+[ext_resource type="Resource" uid="uid://donj5j6pno17w" path="res://EaseMark/Options/rotation.tres" id="2_ou6lt"]
+[ext_resource type="Resource" uid="uid://x6mgkfrc0e0" path="res://EaseMark/Options/squash.tres" id="3_xxh5p"]
+[ext_resource type="Resource" uid="uid://b145kn147j8ii" path="res://EaseMark/defaults/positive/positive.tres" id="6_jafks"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_14upp")
+ease_mark_list = Array[Resource("res://EaseMark/scripts/EaseMarkOption.gd")]([ExtResource("2_ou6lt"), ExtResource("3_xxh5p")])
+
+[node name="EaseMarksContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpeedMarkFrame" type="Control" parent="EaseMarksContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_f0yqg")
+
+[node name="Top" type="ColorRect" parent="EaseMarksContainer/SpeedMarkFrame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.913725, 0.941176, 1)
+
+[node name="Ttile" type="Label" parent="EaseMarksContainer/SpeedMarkFrame/Top"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.1
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_right = 71.0
+offset_bottom = 12.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "Speed"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EaseMarksContainer/SpeedMarkFrame/Top"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+offset_left = -846.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Minimize" type="Button" parent="EaseMarksContainer/SpeedMarkFrame/Top/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-"
+flat = true
+alignment = 2
+
+[node name="EaseMarkEdit" parent="EaseMarksContainer/SpeedMarkFrame" instance=ExtResource("1_fa5hv")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+color = Color(0.0784314, 0.054902, 0.0901961, 1)
+default_curves = ExtResource("6_jafks")
+curve_min = 0.0
+
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 2
+text = "+"
+flat = false
+
+[connection signal="pressed" from="EaseMarksContainer/SpeedMarkFrame/Top/HBoxContainer/Minimize" to="EaseMarksContainer/SpeedMarkFrame" method="_on_move_up_pressed" flags=18]

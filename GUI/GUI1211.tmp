@@ -1,0 +1,98 @@
+[gd_scene load_steps=22 format=3 uid="uid://dltuprpshv25g"]
+
+[ext_resource type="PackedScene" uid="uid://r66edrpyk5sr" path="res://CelSheet/cel_sheet.tscn" id="1_adyrn"]
+[ext_resource type="Script" path="res://GUI/scripts/GUI.gd" id="1_mfhis"]
+[ext_resource type="StyleBox" uid="uid://dvt53ahjspi0b" path="res://GUI/themes/purple_box.tres" id="1_o17ax"]
+[ext_resource type="PackedScene" uid="uid://cwet1vsgpw23f" path="res://EaseMark/Arc.tscn" id="4_0by4k"]
+[ext_resource type="Script" path="res://GUI/scripts/Timeline.gd" id="4_rw0o7"]
+[ext_resource type="PackedScene" uid="uid://vd7xf7xfopye" path="res://EaseMark/ease_markcontainer.tscn" id="4_yh2ck"]
+[ext_resource type="Resource" uid="uid://donj5j6pno17w" path="res://EaseMark/Options/rotation.tres" id="5_2xfow"]
+[ext_resource type="Script" path="res://GUI/scripts/2dworld.gd" id="5_keqiq"]
+[ext_resource type="Resource" uid="uid://x6mgkfrc0e0" path="res://EaseMark/Options/squash.tres" id="6_4t56l"]
+[ext_resource type="Script" path="res://EaseMark/scripts/speed_mark_control.gd" id="7_gdo5j"]
+[ext_resource type="Resource" uid="uid://cbqigcqubah2u" path="res://EaseMark/Options/scale.tres" id="7_vlt51"]
+[ext_resource type="Curve2D" uid="uid://dkp5na1sj2peu" path="res://EaseMark/defaults/positive/flat.tres" id="8_nly0y"]
+[ext_resource type="Resource" uid="uid://bgwxcuoxgahti" path="res://EaseMark/Options/skew.tres" id="8_qmwn8"]
+[ext_resource type="Resource" uid="uid://b0tb3u66h6swd" path="res://EaseMark/Options/fast_rotation.tres" id="9_br4ai"]
+[ext_resource type="Script" path="res://EaseMark/scripts/ease_mark.gd" id="9_majvm"]
+[ext_resource type="Script" path="res://OnionSkinning/scripts/OnionSkinning.gd" id="12_fckri"]
+[ext_resource type="Texture2D" uid="uid://bgxsaym5lqjll" path="res://images/orb_person.png" id="13_56vi1"]
+[ext_resource type="Texture2D" uid="uid://c5xh56tycitg6" path="res://images/toy_car.png" id="14_42lxa"]
+
+[sub_resource type="Theme" id="Theme_hhwjw"]
+Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+Button/styles/normal = ExtResource("1_o17ax")
+MenuButton/styles/normal = ExtResource("1_o17ax")
+PopupMenu/styles/panel = ExtResource("1_o17ax")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k6buv"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Resource" id="Resource_6ah05"]
+script = ExtResource("9_majvm")
+curves = Array[Curve2D]([])
+curve_min = 0.0
+curve_max = 100.0
+default = ExtResource("8_nly0y")
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hhwjw")
+script = ExtResource("1_mfhis")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 855
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HSplitContainer"]
+layout_mode = 2
+split_offset = 470
+
+[node name="CelSheet" parent="HSplitContainer/VSplitContainer" node_paths=PackedStringArray("arc", "timeline") instance=ExtResource("1_adyrn")]
+layout_mode = 2
+arc = NodePath("../../../SubViewport/Arcs/Arc")
+timeline = NodePath("../Timeline")
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/VSplitContainer/CelSheet"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -55.0
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_k6buv")
+stretch_mode = 2
+
+[node name="Timeline" type="Control" parent="HSplitContainer/VSplitContainer" node_paths=PackedStringArray("cel_sheet")]
+layout_mode = 2
+mouse_default_cursor_shape = 3
+script = ExtResource("4_rw0o7")
+cel_sheet = NodePath("../CelSheet")
+
+[node name="ColorRect" type="ColorRect" paren

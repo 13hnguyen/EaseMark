@@ -1,0 +1,122 @@
+[gd_scene load_steps=20 format=3 uid="uid://b2d35qmruy41v"]
+
+[ext_resource type="Script" path="res://Test/test_rect.gd" id="1_7qaxv"]
+[ext_resource type="Curve2D" uid="uid://bow7dree7f3s4" path="res://EaseMark/defaults/positive/ease_in.tres" id="2_2g76q"]
+[ext_resource type="Curve2D" uid="uid://byvre2t18yne0" path="res://EaseMark/defaults/positive/ease_in_out.tres" id="3_7u7d2"]
+[ext_resource type="Curve2D" uid="uid://sprelj7uol3k" path="res://EaseMark/defaults/positive/ease_out.tres" id="4_x3wv7"]
+[ext_resource type="Curve2D" uid="uid://dvt2rqje1m7yo" path="res://EaseMark/defaults/positive/ease_out_in.tres" id="5_k78q8"]
+[ext_resource type="Curve2D" uid="uid://dkp5na1sj2peu" path="res://EaseMark/defaults/positive/flat.tres" id="6_g4508"]
+[ext_resource type="Curve2D" uid="uid://by08qesm43cy2" path="res://EaseMark/defaults/positive/flat_middle.tres" id="7_bohi8"]
+[ext_resource type="Curve2D" uid="uid://k103l5m6fflq" path="res://EaseMark/defaults/positive/hill.tres" id="8_0q1es"]
+[ext_resource type="Curve2D" uid="uid://camffv1sxtvo8" path="res://EaseMark/defaults/positive/linear.tres" id="9_3p0ij"]
+[ext_resource type="Curve2D" uid="uid://dj8xcj021r7jt" path="res://EaseMark/defaults/mirror/flat.tres" id="10_6k258"]
+[ext_resource type="Curve2D" uid="uid://cnj6fi70pil0" path="res://EaseMark/defaults/mirror/linear.tres" id="11_vr33x"]
+[ext_resource type="Curve2D" uid="uid://c58cphlmq2r2r" path="res://EaseMark/defaults/mirror/ease_in.tres" id="12_00v1d"]
+[ext_resource type="Curve2D" uid="uid://3o033516vd0w" path="res://EaseMark/defaults/mirror/ease_out.tres" id="13_n1alu"]
+[ext_resource type="Curve2D" uid="uid://cjvif80qklss7" path="res://EaseMark/defaults/mirror/ease_in_out.tres" id="14_fkmfm"]
+[ext_resource type="Curve2D" uid="uid://bbye8m6435guc" path="res://EaseMark/defaults/mirror/ease_out_in.tres" id="15_ae4la"]
+[ext_resource type="Curve2D" uid="uid://bbkmsf2yfw40d" path="res://EaseMark/defaults/mirror/hill.tres" id="16_0lst3"]
+[ext_resource type="Curve2D" uid="uid://du0w5gg4roqte" path="res://EaseMark/defaults/mirror/flat_middle.tres" id="17_p4jrl"]
+
+[sub_resource type="Curve2D" id="Curve2D_q3erj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 100, -25.0127, -1.41581, 25.0127, 1.41581, 30, 40, -16.5178, 10.8546, 16.5178, -10.8546, 80, 70, -5.66325, 12.2704, 5.66325, -12.2704, 70, -80, 0, 0, 0, 0, 100, -100)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_1uywg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -100, 5.663, -12.27, 25.013, 1.416, 30, -80, 25.013, 1.416, -16.518, 10.855, 20, 70, 25.013, 1.416, -25.013, -1.416, 70, 40, 0, 0, 0, 0, 100, 100)
+}
+point_count = 5
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7qaxv")
+rect = Rect2(100, 100, 100, 200)
+curves = Array[Curve2D]([ExtResource("2_2g76q"), ExtResource("3_7u7d2"), ExtResource("4_x3wv7"), ExtResource("5_k78q8"), ExtResource("6_g4508"), ExtResource("7_bohi8"), ExtResource("8_0q1es"), ExtResource("9_3p0ij")])
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+metadata/_edit_lock_ = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = ExtResource("6_g4508")
+
+[node name="Path2D2" type="Path2D" parent="."]
+visible = false
+curve = ExtResource("9_3p0ij")
+
+[node name="Path2D3" type="Path2D" parent="."]
+visible = false
+curve = ExtResource("2_2g76q")
+
+[node name="Path2D4" type="Path2D" parent="."]
+visible = false
+curve = ExtResource("4_x3wv7")
+
+[node name="Path2D5" type="Path2D" parent="."]
+visible = false
+curve = ExtResource("3_7u7d2")
+
+[node name="Path2D6" type="Path2D" parent="."]
+visible = false
+curve = ExtResource("5_k78q8")
+
+[node name="Path2D7" type="Path2D" parent="."]
+visible = false
+curve = ExtResource("8_0q1es")
+
+[node name="Path2D8" type="Path2D" parent="."]
+visible = false
+curve = ExtResource("7_bohi8")
+
+[node name="Path2D9" type="Path2D" parent="."]
+visible = false
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = ExtResource("10_6k258")
+
+[node name="Path2D10" type="Path2D" parent="."]
+visible = false
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = ExtResource("11_vr33x")
+
+[node name="Path2D11" type="Path2D" parent="."]
+visible = false
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = ExtResource("12_00v1d")
+
+[node name="Path2D12" type="Path2D" parent="."]
+visible = false
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = ExtResource("13_n1alu")
+
+[node name="Path2D13" type="Path2D" parent="."]
+visible = false
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = ExtResource("14_fkmfm")
+
+[node name="Path2D14" type="Path2D" parent="."]
+visible = false
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = ExtResource("15_ae4la")
+
+[node name="Path2D15" type="Path2D" parent="."]
+visible = false
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = ExtResource("16_0lst3")
+
+[node name="Path2D16" type="Path2D" parent="."]
+visible = false
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = ExtResource("17_p4jrl")
+
+[node name="mirror" type="Path2D" parent="."]
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = SubResource("Curve2D_q3erj")
+
+[node name="mirror2" type="Path2D" parent="."]
+modulate = Color(0.92549, 0, 0.521569, 1)
+curve = SubResource("Curve2D_1uywg")

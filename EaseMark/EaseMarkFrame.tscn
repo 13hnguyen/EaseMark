@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://fcf6324bjxkm"]
+
+[ext_resource type="PackedScene" uid="uid://dut44eex521rp" path="res://GUI/EaseMarkEdit.tscn" id="1_7vm2r"]
+[ext_resource type="Script" path="res://EaseMark/scripts/EaseMarkFrame.gd" id="1_wd5mg"]
+
+[node name="EaseMarkFrame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_wd5mg")
+
+[node name="Top" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.913725, 0.941176, 1)
+
+[node name="Ttile" type="Label" parent="Top"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.1
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_right = 71.0
+offset_bottom = 12.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "EaseMark"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Top"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+offset_left = -846.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Minimize" type="Button" parent="Top/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-"
+flat = true
+alignment = 2
+
+[node name="MoveUp" type="Button" parent="Top/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "^"
+flat = true
+alignment = 2
+
+[node name="MoveDown" type="Button" parent="Top/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "v"
+flat = true
+alignment = 2
+
+[node name="Delete" type="Button" parent="Top/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "X"
+flat = true
+alignment = 2
+
+[node name="EaseMarkEdit" parent="." instance=ExtResource("1_7vm2r")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+color = Color(0.0784314, 0.054902, 0.0901961, 1)
+
+[node name="Control" type="Node" parent="."]
+
+[connection signal="pressed" from="Top/HBoxContainer/Minimize" to="." method="_on_move_up_pressed"]
+[connection signal="pressed" from="Top/HBoxContainer/MoveUp" to="." method="_on_move_up_pressed"]
+[connection signal="pressed" from="Top/HBoxContainer/MoveDown" to="." method="_on_move_down_pressed"]
+[connection signal="pressed" from="Top/HBoxContainer/Delete" to="." method="_on_delete_pressed"]
+
+[editable path="EaseMarkEdit"]

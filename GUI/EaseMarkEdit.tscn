@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dut44eex521rp"]
+
+[ext_resource type="Script" path="res://GUI/scripts/EaseMarkEdit.gd" id="1_2s414"]
+[ext_resource type="Script" path="res://GUI/scripts/EaseMarkPen.gd" id="3_gp5na"]
+
+[node name="EaseMarkEdit" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+color = Color(0.862745, 0.811765, 0.65098, 1)
+script = ExtResource("1_2s414")
+
+[node name="Frame" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 3
+script = ExtResource("3_gp5na")
+
+[connection signal="resized" from="Frame" to="." method="_on_resized"]
+[connection signal="h_mirror" from="Pen" to="." method="_on_pen_h_mirror"]
+[connection signal="hover" from="Pen" to="." method="_on_pen_hover"]
+[connection signal="pen_lifted" from="Pen" to="." method="_on_pen_pen_lifted"]
+[connection signal="pen_reset" from="Pen" to="." method="_on_pen_pen_reset"]
+[connection signal="right_click" from="Pen" to="." method="_on_pen_right_click"]
+[connection signal="stroke_changed" from="Pen" to="." method="_on_pen_stroke_changed"]
+[connection signal="v_mirror" from="Pen" to="." method="_on_pen_v_mirror"]

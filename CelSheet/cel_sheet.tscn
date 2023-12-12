@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://r66edrpyk5sr"]
+
+[ext_resource type="Script" path="res://CelSheet/scripts/cel_sheet.gd" id="1_b688a"]
+[ext_resource type="Script" path="res://Pen/scripts/ArcPen.gd" id="2_e05vd"]
+
+[node name="CelSheet" type="Control" node_paths=PackedStringArray("arc_pen")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b688a")
+arc_pen = NodePath("ArcPen")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.929412, 0.913725, 0.941176, 1)
+
+[node name="ArcPen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_e05vd")
+
+[connection signal="pen_lifted" from="ArcPen" to="." method="_on_arc_pen_pen_lifted"]
+[connection signal="pen_reset" from="ArcPen" to="." method="_on_arc_pen_pen_reset"]
+[connection signal="right_click" from="ArcPen" to="." method="_on_arc_pen_right_click"]
+[connection signal="stroke_changed" from="ArcPen" to="." method="_on_arc_pen_stroke_changed"]
